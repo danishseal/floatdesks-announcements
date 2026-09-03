@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Mirrored, third-party production bundles are vendored as static assets.
+    "public/dottxt/**",
+    "public/_vercel/**",
   ]),
 ]);
 

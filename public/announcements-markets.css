@@ -1,0 +1,188 @@
+@font-face {
+  font-family: FloatNeueBit;
+  src: url('/dottxt/assets/fonts/neue-bit/NeueBit-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+}
+
+/* Additions to the original announcements layout; its shell stays untouched. */
+.float-navigation { display: flex; align-items: center; gap: 1.5rem; }
+.Header_header__navigation__K_Gty { column-gap: 1.5rem; }
+.float-navigation a { white-space: nowrap; }
+.float-navigation a[aria-current="page"] .label { text-decoration: underline; text-underline-offset: .25em; }
+.Header_header__mobileMenu__qnaKh > .float-navigation { margin-right: 1rem; }
+.float-market-page .AnnouncementsList_announcementsList__listWrapper__aigtX:not(#float-market-content),
+.float-market-page .AnnouncementsList_announcementsList__loadMore__5RPZv { display: none; }
+#float-market-content { opacity: 1; }
+.float-content { padding-bottom: 3rem; }
+.float-intro { margin-bottom: 2rem; }
+.float-muted { color: #747474; font-size: 1rem; }
+.float-intro .float-muted { margin-top: .75rem; }
+.float-toolbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 3rem; }
+.float-filters { display: flex; flex-wrap: wrap; gap: 1rem; }
+.float-filters button { color: #747474; padding-bottom: .35rem; border-bottom: 1px solid transparent; }
+.float-filters button[aria-pressed="true"] { color: #000; border-color: #000; }
+.float-filters sup { font-size: .65em; }
+.float-search { display: flex; border-bottom: 1px solid #999; padding-bottom: .35rem; }
+.float-search input { background: transparent; min-width: 0; width: 10rem; }
+.float-content button { cursor: pointer; }
+.float-content :is(button,input):focus-visible { outline: 2px solid #7f9acf; outline-offset: 4px; }
+.float-article { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); width: 100%; text-align: left; }
+.float-company-title { display: block; text-decoration: underline; }
+.float-article:hover .float-company-title { text-decoration: none; }
+.float-quote { display: flex; align-items: baseline; gap: 1.5rem; margin-top: 1rem; font-variant-numeric: tabular-nums; }
+.float-positive { color: #37664c; }
+.float-negative { color: #a44940; }
+.float-quote small { color: #747474; font-size: .75rem; }
+.float-expand { margin-left: auto; }
+.float-detail { margin: 1.5rem 0 0 33.333%; }
+.float-detail-meta { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem; font-size: .85rem; color: #747474; }
+.float-detail .chart { width: 100%; height: 180px; margin: 1rem 0; color: #111; }
+.float-detail p { margin-top: 1rem; }
+.float-list-footer { display: flex; justify-content: space-between; gap: 1rem; margin-top: 3rem; font-size: .9rem; }
+.float-list-footer button { text-decoration: underline; }
+.float-notes { margin-top: 4rem; }
+.float-notes h2 { margin-bottom: 1.25rem; }
+.float-notes p { margin-bottom: 1rem; }
+.float-oracle { display: flex; justify-content: space-between; gap: 1rem; margin-bottom: .75rem; }
+.float-disclaimer { color: #747474; font-size: .85rem; margin-top: 3rem; }
+@media (max-width: 767px) {
+  .float-detail { margin-left: 0; }
+  .float-quote { flex-wrap: wrap; gap: .75rem; }
+  .float-search, .float-search input { width: 100%; }
+  .Header_header__mobileMenu__qnaKh { display: flex; align-items: center; }
+  .Header_header__mobileMenu__qnaKh .float-navigation { gap: .6rem; }
+  .Header_header__mobileMenu__qnaKh .float-navigation .key { display: none; }
+}
+
+/* Always show the price history beside the company copy. The row's plus
+   continues to expand the full chart below, without changing the article grid. */
+.float-company-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 112px;
+  column-gap: 1.5rem;
+}
+.float-company-summary > .PostPreview_postPreview__title__c1oda,
+.float-company-summary > .PostPreview_postPreview__excerpt__pDb2h,
+.float-company-summary > .float-quote { grid-column: 1; }
+.float-mini-chart {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  display: flex;
+  align-items: center;
+  align-self: center;
+  gap: .75rem;
+}
+.float-mini-chart .chart {
+  display: block;
+  width: 90px;
+  height: 38px;
+  color: #111;
+}
+.float-mini-chart .float-expand { font-size: 1.1rem; }
+@media (max-width: 767px) {
+  .float-company-summary { grid-template-columns: minmax(0, 1fr) 86px; column-gap: .75rem; }
+  .float-mini-chart { gap: .5rem; }
+  .float-mini-chart .chart { width: 64px; height: 32px; }
+}
+
+.float-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  text-decoration: none;
+}
+.float-wordmark {
+  font-family: FloatNeueBit, monospace;
+  font-weight: 700;
+  font-size: 1.65rem;
+  line-height: 1;
+  letter-spacing: -.04em;
+}
+.Footer_footer__logo__Y6Djb .float-wordmark { font-size: 3rem; }
+
+.float-brand .float-brand-logo {
+  display: block;
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.Footer_footer__logo__Y6Djb .float-brand-logo {
+  width: 56px;
+  height: 56px;
+  filter: invert(1);
+}
+
+/* Preserve the original 48px logo tile and wordmark alignment. The supplied
+   PNG has generous transparent margins, so scale it within the clipped tile. */
+.Header_header__logo__SW90s .float-brand {
+  height: 100%;
+  gap: 0;
+}
+.Header_header__logo__SW90s .float-brand-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 100%;
+  flex: 0 0 48px;
+  overflow: hidden;
+  background: #000;
+}
+.Header_header__logo__SW90s .float-brand-logo {
+  width: 80px;
+  height: 80px;
+  max-width: none;
+  filter: invert(1);
+  transform: translateX(-1px);
+}
+.Header_header__logo__SW90s .float-wordmark {
+  padding: 0 10px;
+  font-family: FloatNeueBit, monospace;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+/* Keep every glyph on the same face, independent of inherited text effects. */
+.float-wordmark,
+.float-wordmark .float-wordmark-glyph {
+  font-family: FloatNeueBit !important;
+  font-weight: 700 !important;
+  font-style: normal;
+  font-synthesis: none;
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "clig" 0, "dlig" 0;
+}
+.float-wordmark .float-wordmark-glyph {
+  display: inline-block;
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+}
+
+/* Keep the original announcements scrollbar on its original scroll container. */
+#main-content {
+  scrollbar-gutter: stable;
+  scrollbar-width: auto;
+  scrollbar-color: auto;
+}
+#main-content::-webkit-scrollbar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: .5rem;
+  background-color: #fff;
+  box-sizing: content-box;
+}
+#main-content::-webkit-scrollbar-track {
+  border: .0625rem solid #000;
+  background-color: transparent;
+}
+#main-content::-webkit-scrollbar-thumb {
+  background-color: #000;
+}

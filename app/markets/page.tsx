@@ -1,2 +1,2 @@
 export const metadata = { title: "Markets | Float" };
-export default function Home() { return null; }
+export default function Markets() { return null; }

@@ -8,6 +8,7 @@ import TradingViewChart from "./tradingview-chart";
 import { tradingViewSymbol } from "./tradingview-symbol";
 
 const floatTickers = ["2222.SR", "005930.KS", "0700.HK", "MC.PA", "300750.SZ", "600519.SS", "NESN.SW", "RMS.PA", "2454.TW", "9984.T", "7974.T"];
+const bottomMarketTickers = ["2222.SR", "005930.KS"];
 export default function MarketBoard({ view = "markets" }: { view?: "markets" | "top200" }) {
   const { quotes, status } = useMarketQuotes();
   const [query, setQuery] = useState("");
@@ -15,7 +16,8 @@ export default function MarketBoard({ view = "markets" }: { view?: "markets" | "
   const [limit, setLimit] = useState(20);
   const [open, setOpen] = useState<string | null>(null);
   const top = view === "top200";
-  const source = top ? universe : universe.filter(c => floatTickers.includes(c.ticker));
+  const source = top ? universe : universe.filter(c => floatTickers.includes(c.ticker))
+    .sort((a, b) => bottomMarketTickers.indexOf(a.ticker) - bottomMarketTickers.indexOf(b.ticker));
   const rows = source.filter(c => (!top || filter === "all" || (filter === "on" ? c.on : !c.on)) && `${c.name} ${c.ticker}`.toLowerCase().includes(query.toLowerCase()));
   return <div className="float-content">
     <div className="float-intro h3 h3--small">{top ? "Explore the Top 200 company universe." : "Explore Float’s global market universe."}<p className="float-muted">{status}</p></div>

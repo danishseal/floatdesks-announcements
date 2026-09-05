@@ -186,3 +186,37 @@
 #main-content::-webkit-scrollbar-thumb {
   background-color: #000;
 }
+
+.float-chart-source { display: flex; gap: 1.25rem; margin-bottom: 1.25rem; }
+.float-chart-source button { padding: .4rem 0; border-bottom: 1px solid transparent; color: #747474; font-size: .9rem; }
+.float-chart-source button[aria-pressed="true"] { border-color: #000; color: #000; }
+.float-detail-tradingview { margin-left: 0; }
+/* The embed injects inline sizing; keep its entire iframe chain at the
+   expanded height instead of allowing the browser's 150px iframe default. */
+.float-tv-chart .float-tv-container {
+  height: 520px !important;
+  min-height: 520px;
+  width: 100% !important;
+}
+.float-tv-container > .tradingview-widget-container__widget,
+.float-tv-container iframe {
+  display: block;
+  height: 100% !important;
+  min-height: 100%;
+  width: 100% !important;
+  border: 0;
+}
+.float-tv-chart .tradingview-widget-copyright { display: flex; align-items: baseline; gap: .3em; }
+.float-tv-chart .tradingview-widget-copyright a { display: inline; }
+.float-tv-chart .tradingview-widget-copyright { font-size: .8rem; margin-top: .5rem; }
+.float-tv-chart .tradingview-widget-copyright a { color: #2563eb; text-decoration: underline; }
+.float-tv-chart .float-tv-note { font-size: .8rem; line-height: 1.5; }
+@media (max-width: 767px) { .float-tv-chart .float-tv-container { height: 400px !important; min-height: 400px; } }
+
+.float-live-quote { width: 100%; min-width: 0; padding: 0 0 24px; }
+.float-live-quote .tradingview-widget-container { min-height: 180px; width: 100%; }
+.float-live-quote .tradingview-widget-copyright { font-size: 12px; color: #777; padding-top: 8px; }
+
+.float-sparkline { display: block; width: 90px; height: 38px; flex: 0 0 90px; }
+.float-sparkline-status { display: flex; align-items: center; height: 100%; color: #747474; font-size: .65rem; }
+@media (max-width: 767px) { .float-sparkline { width: 64px; height: 32px; flex-basis: 64px; } }
